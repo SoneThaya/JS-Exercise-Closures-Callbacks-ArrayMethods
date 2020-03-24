@@ -357,9 +357,11 @@ function tallyUpDonations(arr) {
 */
 
 // counter1 code
-function counterMaker() {
+function counterMaker(max_value) {
   let count = 0;
-  
+  for (let i = 0; i < max_value; i++) {
+    return count += 1
+  }
 }
 
 const counter1 = counterMaker();
@@ -392,20 +394,22 @@ function counter2() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(max_value) {
+function counterMakerWithLimit(max) {
 /* CODE HERE */
-  let count = 0;
-
-  
-    for (let i = 0; i <= max_value; i++) {
-      count += i;
-    
+let num = 0;
+const countFnc = function () {
+  let result = num;
+  // if num reach 3 then reset num back to zero
+  if (num < max) {
+    num++;
+    return result;
   }
-
-  return function () {
-    
+  else {
+    num = 0;
   }
-
+  return result;
+};
+return countFnc;
  
 }
 
