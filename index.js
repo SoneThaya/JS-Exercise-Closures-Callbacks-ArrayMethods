@@ -138,7 +138,8 @@ function processProduct(num1, num2, cb) {
 */
 function processDuplicateFree(arr, cb) {
 /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */
-  
+  return cb(arr.filter((a, b) => arr.indexOf(a) === b))
+
 }
 
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
@@ -186,14 +187,17 @@ function lowerCaseStrings(arr) {
 */
 function isItAnApple(arr) {
 /* code here */
-  let apple = []
-  arr.forEach(function (item) {
-    if (item === 'apple') {
-        apple.push(true)
-    } else {
-      apple.push(false)
-      }
-  })
+  // let apple = []
+  // arr.forEach(function (item) {
+  //   if (item === 'apple') {
+  //       apple.push(true)
+  //   } else {
+  //     apple.push(false)
+  //     }
+  // })
+  // return apple;
+
+  let apple = arr.map(item => item === 'apple');
   return apple;
 }
 
@@ -215,13 +219,16 @@ function isItAnApple(arr) {
 */
 function removeApple(arr) {
 /* code here */
-  let newArr = []
-  arr.map(function (item) {
-    if (item !== 'apple') {
-      newArr.push(item)
-    }
-  })
-  return newArr
+  // let newArr = []
+  // arr.map(function (item) {
+  //   if (item !== 'apple') {
+  //     newArr.push(item)
+  //   }
+  // })
+  // return newArr
+  let newArr = arr.filter(item => item !== 'apple');
+  return newArr;
+
 }
 
 /**
@@ -319,8 +326,11 @@ function getRunnersByTShirtSize(arr, tShirtSize) {
  * @param runners array of runners like the one inside the /data/runners.js file.
  * @returns a number which is the sum of the donations by all runners.
 */
-function tallyUpDonations(/* CODE HERE */) {
-  /* CODE HERE */
+function tallyUpDonations(arr) {
+/* CODE HERE */
+  let total = arr.reduce((acc, b) => acc + b.donation, 0)
+
+  return total;
 }
 
 /////////////// CLOSURES ///////////////
@@ -333,19 +343,23 @@ function tallyUpDonations(/* CODE HERE */) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
+ *    
+ *    The count variable is inside the function scope in counter1. The count variable for counter2 is in the global scope.
  * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ *    counter1 uses closures.  The entire code is inside the function. function within a function.  Counter 2 has a variable outside of the function.
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * 
+ *  In a large application closures will help to prevent re using variable names.
  *
 */
 
 // counter1 code
 function counterMaker() {
   let count = 0;
-  return function counter() {
-    count++;
-  }
+  
 }
 
 const counter1 = counterMaker();
@@ -378,8 +392,21 @@ function counter2() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(/* CODE HERE */) {
-  /* CODE HERE */
+function counterMakerWithLimit(max_value) {
+/* CODE HERE */
+  let count = 0;
+
+  
+    for (let i = 0; i <= max_value; i++) {
+      count += i;
+    
+  }
+
+  return function () {
+    
+  }
+
+ 
 }
 
 /////////////// END OF CHALLENGE ///////////////
